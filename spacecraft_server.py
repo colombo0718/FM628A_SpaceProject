@@ -67,6 +67,6 @@ while True:
             print('......')
             connect=False
             
-#         time.sleep(0.1) # 稍微暫停一下
+        time.sleep(0.01) # 稍微暫停一下
         
 #     sock.close()            #關閉socket

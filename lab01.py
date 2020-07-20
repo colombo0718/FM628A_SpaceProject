@@ -3,16 +3,23 @@ import time
 
 sock=socket.socket()
 sock.connect(('192.168.4.1', 9999))    #IP位址需要做更改
-i=0
+n=0
 running=True
 while running:
-    i+=1
+    n+=1
     # sock.send('ready'.encode('utf-8'))
     data=sock.recv(1024)
     data=data.decode('utf-8')
-    print(i,data)
+    data=data.split('/')
+    print(n)
+    # print(data)
 
-    if i>10:
+    for i in range(len(data)-1) :
+        components=data[i].split(',')
+        if len(components)==6 and not components[0]=="":
+            print(components)
+
+    if n>10:
         running=False
 sock.close()
 #     data=data.split('/')

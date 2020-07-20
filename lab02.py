@@ -16,13 +16,13 @@ bg = pg.Surface(screen.get_size())
 bg.fill((0,255,255))
 pg.display.update()
 
-spacecraft = pg.image.load("spacecraft.png")
+spacecraft = pg.image.load("pics/spacecraft.png")
 spacecraft = pg.transform.scale(spacecraft, (82,120))
 # spacecraft = pg.transform.rotate(spacecraft,45)
 
-bluefire1 = pg.image.load("blueFire1.png")
+bluefire1 = pg.image.load("pics/blueFire1.png")
 bluefire1 = pg.transform.scale(bluefire1, (82,60))
-bluefire2 = pg.image.load("blueFire2.png")
+bluefire2 = pg.image.load("pics/blueFire2.png")
 bluefire2 = pg.transform.scale(bluefire2, (82,60))
 bluefire=[bluefire1,bluefire2]
 
@@ -61,6 +61,8 @@ while running:
         
         screen.blit(bg,(0,0))
         pg.display.update()
+
+        time.sleep(0.01)
 
     for event in pg.event.get():
         if event.type == pg.QUIT:
