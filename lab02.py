@@ -20,6 +20,18 @@ spacecraft = pg.image.load("pics/spacecraft.png")
 spacecraft = pg.transform.scale(spacecraft, (82,120))
 # spacecraft = pg.transform.rotate(spacecraft,45)
 
+redfire1 = pg.image.load("pics/redFire1.png")
+redfire1 = pg.transform.scale(redfire1, (82,60))
+redfire2 = pg.image.load("pics/redFire2.png")
+redfire2 = pg.transform.scale(redfire2, (82,60))
+redfire=[redfire1,redfire2]
+
+greenfire1 = pg.image.load("pics/greenFire1.png")
+greenfire1 = pg.transform.scale(greenfire1, (82,60))
+greenfire2 = pg.image.load("pics/greenFire2.png")
+greenfire2 = pg.transform.scale(greenfire2, (82,60))
+greenfire=[greenfire1,greenfire2]
+
 bluefire1 = pg.image.load("pics/blueFire1.png")
 bluefire1 = pg.transform.scale(bluefire1, (82,60))
 bluefire2 = pg.image.load("pics/blueFire2.png")
@@ -46,23 +58,27 @@ while running:
     data=sock.recv(1024)
     data=data.decode('utf-8')
     data=data.split('/')
-    print(data)
+    # print(data)
     for i in range(len(data)-1) :
         components=data[i].split(',')
+        if len(components)==6 and not components[0]=="":
+            print(components)
 
         # if len(components)==6 and not components[0]=="":
-        cnt+=1
-        cnt=cnt%2
+    cnt+=1
+    cnt=cnt%2
 
-        bg.fill((0,255,255))
+    bg.fill((0,255,255))
 
-        bg.blit(spacecraft,(320-40,240))
-        bg.blit(bluefire[cnt],(320-40,240+120))
-        
-        screen.blit(bg,(0,0))
-        pg.display.update()
+    bg.blit(spacecraft,(320-40,240))
+    bg.blit(redfire[cnt],(320-40,240+120))
+    bg.blit(greenfire[cnt],(320-40,240+120))
 
-        time.sleep(0.01)
+    
+    screen.blit(bg,(0,0))
+    pg.display.update()
+
+    time.sleep(0.01)
 
     for event in pg.event.get():
         if event.type == pg.QUIT:
