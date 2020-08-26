@@ -35,9 +35,6 @@ while True:
         
         data='' # 重製data
 
-#     print("Ax:",sensor.acceleration[0],",Ay:",sensor.acceleration[1],",Ay:",sensor.acceleration[2])
-#     print("Gx:",sensor.gyro[0],",Gy:",sensor.gyro[1],",Gz:",sensor.gyro[2])
-#     print("Bx:",sensor.magnetic[0],",By:",sensor.magnetic[1],",Bz:",sensor.magnetic[2])
         acc=sensor.acceleration
         gyr=sensor.gyro
         mag=sensor.magnetic
@@ -58,6 +55,6 @@ while True:
             print('......')
             connect=False
             
-        time.sleep(0.01) # 稍微暫停一下
+#         time.sleep(0.01) # 稍微暫停一下
         
 #     sock.close()            #關閉socket
